@@ -1,0 +1,32 @@
+body {
+    background-color: lightblue;
+}
+#projects {
+    width: 30%;
+    height: 500px;
+    margin: 100px auto;
+    border: 1px solid black;
+    text-align: center;
+    background-color: #efefef;
+}
+h1 {
+font-size: 40px;
+}
+p {
+    font-size: 25px;
+}
+a {
+    font-size: 100%;
+    color: gray;
+    text-decoration: none;
+    transition-duration: 0.8s;
+}
+a:hover {
+    font-size: 115%;
+    color: blue;
+}
+a:active {
+    font-size: 140%;
+    color: green
+}
+
