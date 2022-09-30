@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>idktest</title>
+    <link rel="stylesheet" href="hovedtester.css">
+    <link rel="stylesheet" href="sidemeny.css">
+    <style>
+        body,
+        html {
+            background-color: #99ccff;
+            height: 100%;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidemeny">
+        <a href="javascript:void(0)" class="lukkbtn" onclick="lukkNav()">&times;</a>
+
+        <div class="dropmeny">
+            <button class="dropknapp">Hjem</button>
+            <div class="drop-innhold">
+                <a href="#one">One</a>
+                <a href="#two">Two</a>
+                <a href="#three">Three</a>
+                <a href="#four">Four</a>
+            </div>
+        </div>
+        <a href="delfiner.html">Delfin</a>
+        <a href="delfiner.html">Delfin</a>
+        <a href="delfiner.html">Delfin</a>
+    </div>
+
+    <script>
+        function apneNav() {
+            document.getElementById("sidemeny").style.width = "200px";
+        }
+        function lukkNav() {
+            document.getElementById("sidemeny").style.width = "0";
+        }
+    </script>
+
+
+    <!--første seksjon av hovedsiden-->
+    <div id="one">
+        <button class="apnebtn" onclick="apneNav()">&#9776;</button>
+        <div id="tittel">
+            <h1>Dreams or Future</h1>
+            <h2>You decide</h2>
+        </div>
+    </div>
+
+    <!--andre seksjon av hovedsiden-->
+    <div id="two">
+        <div id="idk">
+            <div id="delf">
+                <h2>Et harmonisk hello </h2>
+                <p>
+                    Hei og velkommen til dette magiske rike av harmoni og delfiner. Vi håper at livet ditt blir
+                    forandret og
+                    mer inspirerende for fremtiden, det er tross alt du som bestemmer. Se livet på som en flytende
+                    drlfin
+                    som synger de mest harmonsike ord, dette er deg om litt. Nok av fargefult snakk, velkommen skal du
+                    være.
+                    <br><br>
+                    Nettsiden er laget av Pilip, men Emma er "The master mind".
+                </p>
+            </div>
+            <img src="bilder/koral.jpeg" alt="korall" id="korall">
+        </div>
+        <div id="link2">
+            <a href="delfiner.html" class="delf_yoga">Delfiner</a>
+            <a href="yoga.html" class="delf_yoga">Yoga</a>
+        </div>
+    </div>
+
+    <div id="three">
+        <div id="list">
+            <h2>Best movie genres</h2>
+            <ul>
+                <li>Action</li>
+                <li>Thriller</li>
+                <li>Comedy</li>
+                <ol>
+                    <li>Action comedy</li>
+                    <li>Comedy horror</li>
+                    <li>Dark comedy</li>
+                </ol>
+                <li>Science fiction</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="four">
+        <div id="you">
+            <h1><span style="text-decoration:underline;">Du</span> bestemmer over livet ditt,<br> så vær <span
+                    style="text-decoration:underline;">smart</span></h1>
+        </div>
+    </div>
+</body>
+
+</html>

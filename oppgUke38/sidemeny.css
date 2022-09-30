@@ -1,0 +1,118 @@
+
+.dropknapp {
+    background-color: #111;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropmeny {
+    position: relative;
+    display: inline-block;
+    left: 15px;
+}
+
+
+.drop-innhold {
+    display: none;
+    position: relative;
+    background-color: #111;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    
+}
+
+
+.drop-innhold a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+}
+
+
+.drop-innhold a:hover {
+    background-color: grey;
+    
+}
+
+
+.dropmeny:hover .drop-innhold {
+    display: block;
+   
+}
+
+
+.dropmeny:hover .dropknapp {
+    background-color: grey;
+}
+
+
+
+
+#sidemeny {
+    height: 100%;
+    
+    width: 0;
+    
+    position: fixed;
+    
+    z-index: 1;
+    
+    top: 0;
+    left: 0;
+    background-color: #111;
+    
+    overflow-x: hidden;
+   
+    padding-top: 60px;
+  
+    transition: 0.5s;
+    
+}
+
+
+#sidemeny a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+#sidemeny a:hover {
+    color: #f1f1f1;
+}
+
+
+#sidemeny .lukkbtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+.apnebtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.apnebtn:hover {
+    background-color: #444;
+}

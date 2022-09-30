@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="delfin.css">
+    <link rel="stylesheet" href="sidemeny.css">
+    <script src="https://kit.fontawesome.com/f5fd432ab3.js" crossorigin="anonymous"></script>
+    <title>Delfiner</title>
+</head>
+
+<body>
+
+    <div id="sidemeny">
+        <a href="javascript:void(0)" class="lukkbtn" onclick="lukkNav()">&times;</a>
+
+        <div class="dropmeny">
+            <button class="dropknapp">Delfin</button>
+            <div class="drop-innhold">
+                <a href="#delf_one">Delfiner</a>
+                <a href="#delf_two">Info</a>
+            </div>
+        </div>
+        <a href="idk_tester.html">Hjem</a>
+        <a href="idk_tester.html">Hjem</a>
+        <a href="idk_tester.html">Hjem</a>
+    </div>
+    <button class="apnebtn" onclick="apneNav()">&#9776;</button>
+    <div id="delf_one">
+        <div id="t1"></div>
+        <div id="t2"></div>
+        <div id="b1"></div>
+        <div id="b2"></div>
+
+        <div id="delfin_link">
+            <h2>Liker du delfiner?</h2>
+            <span><a href="#delf_two">Ja</a></span>
+            <span><a href="idk_tester.html">Nei</a></span>
+        </div>
+    </div>
+
+    <div id="delf_two">
+        <div id="info">
+            <h1>Delfininfo</h1>
+            <p>
+                Delfiner er en gruppe tannhvaler. De fleste er forholdsvis små hvaler med lengder mellom 1,5 og 4 meter.
+                Spekkhoggeren kan imidlertid bli opptil 8 meter, og veie over 5 tonn. Alle delfiner har en tydelig
+                markert snute og ryggfinne. Neseborene løper sammen til en felles neseåpning like bak snuten.
+                Neseåpningen ser ut som en månesigd med den konkave kanten forrest.
+                <br><br>
+                Delfinene bruker lyd både til kommunikasjon og til ekkolokalisering. Lydregisteret er stort, fra 0,25
+                kilohertz (kHz) til 220 kHz. De kan læres opp til å utføre ganske kompliserte oppgaver, og hukommelsen
+                er svært god. Delfinene har stor hjerne, men tettheten av nerveceller i hjernen er lav. Trolig brukes
+                mye av hjernen til å bearbeide lydsignaler.
+            </p>
+        </div>
+        <div id="merinfo">
+            <h1>Mer Info</h1>
+            <p>
+                <a href="https://snl.no/delfiner" target="_blank">Store norske leksikon</a>
+                <a href="https://no.wikipedia.org/wiki/Delfiner" target="_blank">Wikipedia</a>
+                <a href="https://www.wwf.no/dyreleksikon/delfiner" target="_blank">WWF</a>
+                <img src="bilder/delfiner_wwf.jpg" alt="Delfiner" style="width:90%; padding-top:15px;">
+            </p>
+        </div>
+    </div>
+
+    <div id="delf_three">
+        <table>
+            <tr style="background-color: #adadad;">
+                <th colspan="5" style="font-size:x-large; height:50px;">
+                    Hvorfor er Delfiner best
+                </th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td colspan="4">De lever under vann</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td colspan="4">De er søte</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td colspan="4">De er delfiner</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td colspan="4">Bare fordi</td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td colspan="4">Hva er bedre enn delfiner liksom?</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td colspan="4">De bare er best</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function apneNav() {
+            document.getElementById("sidemeny").style.width = "200px";
+        }
+        function lukkNav() {
+            document.getElementById("sidemeny").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>
