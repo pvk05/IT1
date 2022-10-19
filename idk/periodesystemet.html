@@ -90,13 +90,6 @@
         .andre {
             background-color: rgba(red, green, blue, 0);
         }
-        #info {
-            width: 98%;
-            height: 300px;
-            background-color: blue;
-            display:none;
-            margin-top: 30px;
-        }
     </style>
 </head>
 
@@ -783,24 +776,6 @@
         <div class="metall element">103</div>
 
     </section>
-
-
-    <div id="info">
-        <button onClick="close()">Close</button>
-        <div id="info-text">
-            
-        </div>
-    </div>
-
-    <script>
-        function info(atom) {
-            document.getElementById('info').style.display= "block";
-            document.getElementById('info-text').innerHTML = atom
-        }
-        function close() {
-            document.getElementById('info').style.display= "none";
-        }
-    </script>
 
 </body>
 
