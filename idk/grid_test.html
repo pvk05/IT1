@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: darkslategray;
+        }
+        div {
+            padding: 10px;
+            
+            justify-content: center;
+            text-align: center;
+        }
+        .grupper, .perioder {
+            background-color: lightgray;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .element {
+            transition-duration: 0.5s;
+            border: 1px solid;
+        }
+
+        .element:hover {
+            transform: scale(1.7);
+        }
+
+        .element:hover .full-name {
+            display: block;
+            font-size: 10px;
+        }
+
+        section {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-rows: 30px repeat(10, 70px);
+            grid-template-columns: 30px repeat(18, 70px);
+        }
+
+        .tom {
+            opacity: 0;
+        }
+
+        .span-16 {
+            grid-column: span 16;
+        }
+
+        .span-10x2 {
+            grid-column: span 10;
+            grid-row: span 2;
+        }
+
+        .span-19 {
+            grid-column: span 19;
+        }
+
+        .span-2x2 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .ikke {
+            background-color: white;
+        }
+
+        .halv {
+            background-color: darkgray;
+        }
+
+        .metall {
+            background-color: violet;
+        }
+
+        .full-name {
+            display: none;
+        }
+
+        .name {
+            font-size: 22px;
+        }
+
+        .andre {
+            background-color: rgba(red, green, blue, 0);
+        }
+        #info {
+            width: 98%;
+            height: 300px;
+            background-color: blue;
+            display:none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="tom"></div>
+        <div class="grupper">1</div>
+        <div class="grupper">2</div>
+        <div class="grupper">3</div>
+        <div class="grupper">4</div>
+        <div class="grupper">5</div>
+        <div class="grupper">6</div>
+        <div class="grupper">7</div>
+        <div class="grupper">8</div>
+        <div class="grupper">9</div>
+        <div class="grupper">10</div>
+        <div class="grupper">11</div>
+        <div class="grupper">12</div>
+        <div class="grupper">13</div>
+        <div class="grupper">14</div>
+        <div class="grupper">15</div>
+        <div class="grupper">16</div>
+        <div class="grupper">17</div>
+        <div class="grupper">18</div>
+        <div class="perioder">1</div>
+        <div class="ikke element">
+            <a onClick="info('Hydrogen')">
+                <span>1</span><br>
+                <span class="name">H</span>
+                <span class="full-name ">Hydrogen</span>
+            </a>
+        </div>
+        <div class="span-16 tom"></div>
+        <div class="ikke element">
+            <a onClick="info('Helium')">
+                <span>2</span><br>
+                <span class="name">He</span>
+                <span class="full-name ">Helium</span>
+            </a>
+        </div>
+        <div class="perioder">2</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>3</span><br>
+                <span class="name">Li</span>
+                <span class="full-name ">Litium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>4</span><br>
+                <span class="name">Be</span>
+                <span class="full-name ">Beryllium</span>
+            </a>
+        </div>
+        <div class="span-10x2 tom"></div>
+        <div class="halv element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>5</span><br>
+                <span class="name">B</span>
+                <span class="full-name ">Bor</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>6</span><br>
+                <span class="name">C</span>
+                <span class="full-name ">Karbon</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>7</span><br>
+                <span class="name">N</span>
+                <span class="full-name ">Nitrogen</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>8</span><br>
+                <span class="name">O</span>
+                <span class="full-name ">Oksygen</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>9</span><br>
+                <span class="name">F</span>
+                <span class="full-name ">Fluor</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>10</span><br>
+                <span class="name">Ne</span>
+                <span class="full-name ">Neon</span>
+            </a>
+        </div>
+        <div class="perioder">3</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>11</span><br>
+                <span class="name">Na</span>
+                <span class="full-name ">Natrium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>12</span><br>
+                <span class="name">Mg</span>
+                <span class="full-name ">Magnesium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>13</span><br>
+                <span class="name">Al</span>
+                <span class="full-name ">Aluminium</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>14</span><br>
+                <span class="name">Si</span>
+                <span class="full-name ">Silisium</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>15</span><br>
+                <span class="name">P</span>
+                <span class="full-name ">Fosfor</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>16</span><br>
+                <span class="name">S</span>
+                <span class="full-name ">Svovel</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>17</span><br>
+                <span class="name">Cl</span>
+                <span class="full-name ">Klor</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>18</span><br>
+                <span class="name">Ar</span>
+                <span class="full-name ">Argon</span>
+            </a>
+        </div>
+        <div class="perioder">4</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>19</span><br>
+                <span class="name">K</span>
+                <span class="full-name ">Kalium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>20</span><br>
+                <span class="name">Ca</span>
+                <span class="full-name ">Kalsium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>21</span><br>
+                <span class="name">Sc</span>
+                <span class="full-name ">Scandium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>22</span><br>
+                <span class="name">Ti</span>
+                <span class="full-name ">Titan</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>23</span><br>
+                <span class="name">V</span>
+                <span class="full-name ">Vanadium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>24</span><br>
+                <span class="name">Cr</span>
+                <span class="full-name ">Krom</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>25</span><br>
+                <span class="name">Mn</span>
+                <span class="full-name ">Mangan</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>26</span><br>
+                <span class="name">Fe</span>
+                <span class="full-name ">Jern</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>27</span><br>
+                <span class="name">Co</span>
+                <span class="full-name ">Kobolt</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>28</span><br>
+                <span class="name">Ni</span>
+                <span class="full-name ">Nikkel</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>29</span><br>
+                <span class="name">Cu</span>
+                <span class="full-name ">Kobber</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>30</span><br>
+                <span class="name">Zn</span>
+                <span class="full-name ">Sink</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>31</span><br>
+                <span class="name">Ga</span>
+                <span class="full-name ">Gallium</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>32</span><br>
+                <span class="name">Ge</span>
+                <span class="full-name ">Germanium</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>33</span><br>
+                <span class="name">As</span>
+                <span class="full-name ">Arsen</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>34</span><br>
+                <span class="name">Se</span>
+                <span class="full-name ">Selen</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>35</span><br>
+                <span class="name">Br</span>
+                <span class="full-name ">Brom</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>36</span><br>
+                <span class="name">Kr</span>
+                <span class="full-name ">Krypton</span>
+            </a>
+        </div>
+        <div class="perioder">5</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>37</span><br>
+                <span class="name">Rb</span>
+                <span class="full-name ">Rubidium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>38</span><br>
+                <span class="name">Sr</span>
+                <span class="full-name ">Strontium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>39</span><br>
+                <span class="name">Y</span>
+                <span class="full-name ">Yttrium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>40</span><br>
+                <span class="name">Zr</span>
+                <span class="full-name ">Zirkonium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>41</span><br>
+                <span class="name">Nb</span>
+                <span class="full-name ">Niob</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>42</span><br>
+                <span class="name">Mo</span>
+                <span class="full-name ">Molybden</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>43</span><br>
+                <span class="name">Tc</span>
+                <span class="full-name ">Technetium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>44</span><br>
+                <span class="name">Ru</span>
+                <span class="full-name ">Ruthenium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>45</span><br>
+                <span class="name">Rh</span>
+                <span class="full-name ">Rhodium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>46</span><br>
+                <span class="name">Pd</span>
+                <span class="full-name ">Palladium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>47</span><br>
+                <span class="name">Ag</span>
+                <span class="full-name ">Sølv</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>48</span><br>
+                <span class="name">Cd</span>
+                <span class="full-name ">Kadmium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>49</span><br>
+                <span class="name">In</span>
+                <span class="full-name ">Indium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>50</span><br>
+                <span class="name">Sn</span>
+                <span class="full-name ">Tinn</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>51</span><br>
+                <span class="name">Sb</span>
+                <span class="full-name ">Antimon</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>52</span><br>
+                <span class="name">Te</span>
+                <span class="full-name ">Tellur</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>53</span><br>
+                <span class="name">I</span>
+                <span class="full-name ">Jod</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>54</span><br>
+                <span class="name">Xe</span>
+                <span class="full-name ">Xenon</span>
+            </a>
+        </div>
+        <div class="perioder">6</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>55</span><br>
+                <span class="name">Cs</span>
+                <span class="full-name ">Cesium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>56</span><br>
+                <span class="name">Ba</span>
+                <span class="full-name ">Barium</span>
+            </a>
+        </div>
+        <div>57-71</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>72</span><br>
+                <span class="name">Hf</span>
+                <span class="full-name ">Hafnium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>73</span><br>
+                <span class="name">Ta</span>
+                <span class="full-name ">Tantal</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>74</span><br>
+                <span class="name">W</span>
+                <span class="full-name ">Wolfram</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>75</span><br>
+                <span class="name">Re</span>
+                <span class="full-name ">Rhenium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>76</span><br>
+                <span class="name">Os</span>
+                <span class="full-name ">Osmium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>77</span><br>
+                <span class="name">Ir</span>
+                <span class="full-name ">Iridium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>78</span><br>
+                <span class="name">Pt</span>
+                <span class="full-name ">Platina</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>79</span><br>
+                <span class="name">Au</span>
+                <span class="full-name ">Gull</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>80</span><br>
+                <span class="name">Hg</span>
+                <span class="full-name ">Kvikksølv</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>81</span><br>
+                <span class="name">Tl</span>
+                <span class="full-name ">Thallium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>82</span><br>
+                <span class="name">Pb</span>
+                <span class="full-name ">Bly</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>83</span><br>
+                <span class="name">Bi</span>
+                <span class="full-name ">Vismut</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>84</span><br>
+                <span class="name">Po</span>
+                <span class="full-name ">Polonium</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>85</span><br>
+                <span class="name">At</span>
+                <span class="full-name ">Astat</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>86</span><br>
+                <span class="name">Rn</span>
+                <span class="full-name ">Radon</span>
+            </a>
+        </div>
+        <div class="perioder">7</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>87</span><br>
+                <span class="name">Fr</span>
+                <span class="full-name ">Francium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>88</span><br>
+                <span class="name">Ra</span>
+                <span class="full-name ">Radium</span>
+            </a>
+        </div>
+        <div class="andre">89-103</div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>104</span><br>
+                <span class="name">Rf</span>
+                <span class="full-name ">Rutherfordium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>105</span><br>
+                <span class="name">Db</span>
+                <span class="full-name ">Dubnium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>106</span><br>
+                <span class="name">Sg</span>
+                <span class="full-name ">Seaborgium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>107</span><br>
+                <span class="name">Bh</span>
+                <span class="full-name ">Bohrium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>108</span><br>
+                <span class="name">Hs</span>
+                <span class="full-name ">Hassium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>109</span><br>
+                <span class="name">Mt</span>
+                <span class="full-name ">Meitnerium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>110</span><br>
+                <span class="name">Ds</span>
+                <span class="full-name ">Darmstadtium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>111</span><br>
+                <span class="name">Rg</span>
+                <span class="full-name ">Røntgenium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>112</span><br>
+                <span class="name">Cn</span>
+                <span class="full-name ">Copernicium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>113</span><br>
+                <span class="name">Nh</span>
+                <span class="full-name ">Nithonium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>114</span><br>
+                <span class="name">Fl</span>
+                <span class="full-name ">Flerovium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>115</span><br>
+                <span class="name">Mc</span>
+                <span class="full-name ">Moscovium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>116</span><br>
+                <span class="name">Lv</span>
+                <span class="full-name ">Livermirium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>117</span><br>
+                <span class="name">Ts</span>
+                <span class="full-name ">Tenness</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a href="https://periodesystemet.no" target="_blank">
+                <span>118</span><br>
+                <span class="name">Og</span>
+                <span class="full-name ">Oganesson</span>
+            </a>
+        </div>
+        <div class="span-19 tom"></div>
+        <div class="span-2x2 tom"></div>
+        <div class="metall element">57</div>
+        <div class="metall element">58</div>
+        <div class="metall element">59</div>
+        <div class="metall element">60</div>
+        <div class="metall element">61</div>
+        <div class="metall element">62</div>
+        <div class="metall element">63</div>
+        <div class="metall element">64</div>
+        <div class="metall element">65</div>
+        <div class="metall element">66</div>
+        <div class="metall element">67</div>
+        <div class="metall element">68</div>
+        <div class="metall element">69</div>
+        <div class="metall element">70</div>
+        <div class="metall element">71</div>
+        <div class="span-2x2 tom"></div>
+        <div class="metall element">89</div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element"></div>
+        <div class="metall element">103</div>
+
+    </section>
+
+
+    <div id="info">
+        <button onClick="close()">Close</button>
+        <div id="info-text">
+            
+        </div>
+    </div>
+
+    <script>
+        function info(atom) {
+            document.getElementById('info').style.display= "block";
+            document.getElementById('info-text').innerHTML = atom
+        }
+        function close() {
+            document.getElementById('info').style.display= "none";
+        }
+    </script>
+
+</body>
+
+</html>
