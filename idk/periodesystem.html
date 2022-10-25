@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f5fd432ab3.js" crossorigin="anonymous"></script>
+    <title>Periodesystemet</title>
+    <style>
+        body {
+            background-color: darkslategray;
+        }
+
+        div {
+            padding: 10px;
+
+            justify-content: center;
+            text-align: center;
+        }
+
+        .grupper,
+        .perioder {
+            background-color: lightgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .element {
+            transition-duration: 0.5s;
+            border: 1px solid;
+        }
+
+        .element:hover {
+            transform: scale(1.7);
+        }
+
+        .element:hover .full-name {
+            display: block;
+            font-size: 10px;
+        }
+
+        section {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-rows: 30px repeat(10, 70px);
+            grid-template-columns: 30px repeat(18, 70px);
+        }
+
+        .tom {
+            opacity: 0;
+        }
+
+        .span-16 {
+            grid-column: span 16;
+        }
+
+        .span-10x2 {
+            grid-column: span 10;
+            grid-row: span 2;
+        }
+
+        .span-19 {
+            grid-column: span 19;
+        }
+
+        .span-2x2 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .ikke {
+            background-color: white;
+        }
+
+        .halv {
+            background-color: darkgray;
+        }
+
+        .metall {
+            background-color: violet;
+        }
+
+        .full-name {
+            display: none;
+        }
+
+        .name {
+            font-size: 22px;
+        }
+
+        .andre {
+            background-color: rgba(red, green, blue, 0);
+        }
+
+        .info {
+            width: 98%;
+            height: 300px;
+            background-color: rgb(70, 70, 255);
+            display: none;
+            margin-top: 30px;
+        }
+
+        .info-block {
+            width: 970px;
+            height: 240px;
+            margin: 20px auto;
+            border: 1px solid
+        }
+
+        .lukk {
+            float: right;
+            width: 100%;
+            text-align: right;
+        }
+
+        i {
+            transform: scale(1.8);
+            padding-bottom: 3px;
+        }
+
+        img {
+            width: 153px;
+            height: 153px;
+            float: left;
+            margin-left: 10%;
+            margin-top: 10px;
+        }
+
+        .text {
+            width: 40%;
+            float: right;
+            margin-right: 10%;
+            text-align: left;
+        }
+
+        .text>h1 {
+            text-align: center;
+            margin: 0px;
+        }
+
+        .p1 {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <i class="fa-solid fa-atom"></i>
+        </div>
+        <div class="grupper">1</div>
+        <div class="grupper">2</div>
+        <div class="grupper">3</div>
+        <div class="grupper">4</div>
+        <div class="grupper">5</div>
+        <div class="grupper">6</div>
+        <div class="grupper">7</div>
+        <div class="grupper">8</div>
+        <div class="grupper">9</div>
+        <div class="grupper">10</div>
+        <div class="grupper">11</div>
+        <div class="grupper">12</div>
+        <div class="grupper">13</div>
+        <div class="grupper">14</div>
+        <div class="grupper">15</div>
+        <div class="grupper">16</div>
+        <div class="grupper">17</div>
+        <div class="grupper">18</div>
+        <div class="perioder">
+            <a onClick="fuck()">1</a>
+        </div>
+        <div class="ikke element p1">
+            <a onClick="info('hydrogen-info')">
+                <span>1</span><br>
+                <span class="name">H</span>
+                <span class="full-name ">Hydrogen</span>
+            </a>
+        </div>
+        <div class="span-16 tom"></div>
+        <div class="ikke element p1">
+            <a onClick="info('no-info')">
+                <span>2</span><br>
+                <span class="name">He</span>
+                <span class="full-name ">Helium</span>
+            </a>
+        </div>
+        <div class="perioder">2</div>
+        <div class="metall element p2">
+            <a onClick="info('no-info')">
+                <span>3</span><br>
+                <span class="name">Li</span>
+                <span class="full-name ">Litium</span>
+            </a>
+        </div>
+        <div class="metall element p2">
+            <a onClick="info('no-info')">
+                <span>4</span><br>
+                <span class="name">Be</span>
+                <span class="full-name ">Beryllium</span>
+            </a>
+        </div>
+        <div class="span-10x2 tom"></div>
+        <div class="halv element p2">
+            <a onClick="info('no-info')">
+                <span>5</span><br>
+                <span class="name">B</span>
+                <span class="full-name ">Bor</span>
+            </a>
+        </div>
+        <div class="ikke element p2">
+            <a onClick="info('no-info')">
+                <span>6</span><br>
+                <span class="name">C</span>
+                <span class="full-name ">Karbon</span>
+            </a>
+        </div>
+        <div class="ikke element p2">
+            <a onClick="info('no-info')">
+                <span>7</span><br>
+                <span class="name">N</span>
+                <span class="full-name ">Nitrogen</span>
+            </a>
+        </div>
+        <div class="ikke element p2">
+            <a onClick="info('no-info')">
+                <span>8</span><br>
+                <span class="name">O</span>
+                <span class="full-name ">Oksygen</span>
+            </a>
+        </div>
+        <div class="ikke element p2">
+            <a onClick="info('no-info')">
+                <span>9</span><br>
+                <span class="name">F</span>
+                <span class="full-name ">Fluor</span>
+            </a>
+        </div>
+        <div class="ikke element p2">
+            <a onClick="info('no-info')">
+                <span>10</span><br>
+                <span class="name">Ne</span>
+                <span class="full-name ">Neon</span>
+            </a>
+        </div>
+        <div class="perioder">3</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>11</span><br>
+                <span class="name">Na</span>
+                <span class="full-name ">Natrium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>12</span><br>
+                <span class="name">Mg</span>
+                <span class="full-name ">Magnesium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>13</span><br>
+                <span class="name">Al</span>
+                <span class="full-name ">Aluminium</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a onClick="info('no-info')">
+                <span>14</span><br>
+                <span class="name">Si</span>
+                <span class="full-name ">Silisium</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>15</span><br>
+                <span class="name">P</span>
+                <span class="full-name ">Fosfor</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>16</span><br>
+                <span class="name">S</span>
+                <span class="full-name ">Svovel</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>17</span><br>
+                <span class="name">Cl</span>
+                <span class="full-name ">Klor</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>18</span><br>
+                <span class="name">Ar</span>
+                <span class="full-name ">Argon</span>
+            </a>
+        </div>
+        <div class="perioder">4</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>19</span><br>
+                <span class="name">K</span>
+                <span class="full-name ">Kalium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>20</span><br>
+                <span class="name">Ca</span>
+                <span class="full-name ">Kalsium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>21</span><br>
+                <span class="name">Sc</span>
+                <span class="full-name ">Scandium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>22</span><br>
+                <span class="name">Ti</span>
+                <span class="full-name ">Titan</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>23</span><br>
+                <span class="name">V</span>
+                <span class="full-name ">Vanadium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>24</span><br>
+                <span class="name">Cr</span>
+                <span class="full-name ">Krom</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>25</span><br>
+                <span class="name">Mn</span>
+                <span class="full-name ">Mangan</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>26</span><br>
+                <span class="name">Fe</span>
+                <span class="full-name ">Jern</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>27</span><br>
+                <span class="name">Co</span>
+                <span class="full-name ">Kobolt</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>28</span><br>
+                <span class="name">Ni</span>
+                <span class="full-name ">Nikkel</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('kobber-info')" target="_blank">
+                <span>29</span><br>
+                <span class="name">Cu</span>
+                <span class="full-name ">Kobber</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>30</span><br>
+                <span class="name">Zn</span>
+                <span class="full-name ">Sink</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>31</span><br>
+                <span class="name">Ga</span>
+                <span class="full-name ">Gallium</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a onClick="info('no-info')">
+                <span>32</span><br>
+                <span class="name">Ge</span>
+                <span class="full-name ">Germanium</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a onClick="info('no-info')">
+                <span>33</span><br>
+                <span class="name">As</span>
+                <span class="full-name ">Arsen</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>34</span><br>
+                <span class="name">Se</span>
+                <span class="full-name ">Selen</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>35</span><br>
+                <span class="name">Br</span>
+                <span class="full-name ">Brom</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>36</span><br>
+                <span class="name">Kr</span>
+                <span class="full-name ">Krypton</span>
+            </a>
+        </div>
+        <div class="perioder">5</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>37</span><br>
+                <span class="name">Rb</span>
+                <span class="full-name ">Rubidium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>38</span><br>
+                <span class="name">Sr</span>
+                <span class="full-name ">Strontium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>39</span><br>
+                <span class="name">Y</span>
+                <span class="full-name ">Yttrium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>40</span><br>
+                <span class="name">Zr</span>
+                <span class="full-name ">Zirkonium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>41</span><br>
+                <span class="name">Nb</span>
+                <span class="full-name ">Niob</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>42</span><br>
+                <span class="name">Mo</span>
+                <span class="full-name ">Molybden</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>43</span><br>
+                <span class="name">Tc</span>
+                <span class="full-name ">Technetium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>44</span><br>
+                <span class="name">Ru</span>
+                <span class="full-name ">Ruthenium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>45</span><br>
+                <span class="name">Rh</span>
+                <span class="full-name ">Rhodium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>46</span><br>
+                <span class="name">Pd</span>
+                <span class="full-name ">Palladium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>47</span><br>
+                <span class="name">Ag</span>
+                <span class="full-name ">Sølv</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>48</span><br>
+                <span class="name">Cd</span>
+                <span class="full-name ">Kadmium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>49</span><br>
+                <span class="name">In</span>
+                <span class="full-name ">Indium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>50</span><br>
+                <span class="name">Sn</span>
+                <span class="full-name ">Tinn</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a onClick="info('no-info')">
+                <span>51</span><br>
+                <span class="name">Sb</span>
+                <span class="full-name ">Antimon</span>
+            </a>
+        </div>
+        <div class="halv element">
+            <a onClick="info('no-info')">
+                <span>52</span><br>
+                <span class="name">Te</span>
+                <span class="full-name ">Tellur</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>53</span><br>
+                <span class="name">I</span>
+                <span class="full-name ">Jod</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>54</span><br>
+                <span class="name">Xe</span>
+                <span class="full-name ">Xenon</span>
+            </a>
+        </div>
+        <div class="perioder">6</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>55</span><br>
+                <span class="name">Cs</span>
+                <span class="full-name ">Cesium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>56</span><br>
+                <span class="name">Ba</span>
+                <span class="full-name ">Barium</span>
+            </a>
+        </div>
+        <div>57-71</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>72</span><br>
+                <span class="name">Hf</span>
+                <span class="full-name ">Hafnium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>73</span><br>
+                <span class="name">Ta</span>
+                <span class="full-name ">Tantal</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>74</span><br>
+                <span class="name">W</span>
+                <span class="full-name ">Wolfram</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>75</span><br>
+                <span class="name">Re</span>
+                <span class="full-name ">Rhenium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>76</span><br>
+                <span class="name">Os</span>
+                <span class="full-name ">Osmium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>77</span><br>
+                <span class="name">Ir</span>
+                <span class="full-name ">Iridium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>78</span><br>
+                <span class="name">Pt</span>
+                <span class="full-name ">Platina</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>79</span><br>
+                <span class="name">Au</span>
+                <span class="full-name ">Gull</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>80</span><br>
+                <span class="name">Hg</span>
+                <span class="full-name ">Kvikksølv</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>81</span><br>
+                <span class="name">Tl</span>
+                <span class="full-name ">Thallium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>82</span><br>
+                <span class="name">Pb</span>
+                <span class="full-name ">Bly</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>83</span><br>
+                <span class="name">Bi</span>
+                <span class="full-name ">Vismut</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>84</span><br>
+                <span class="name">Po</span>
+                <span class="full-name ">Polonium</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>85</span><br>
+                <span class="name">At</span>
+                <span class="full-name ">Astat</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>86</span><br>
+                <span class="name">Rn</span>
+                <span class="full-name ">Radon</span>
+            </a>
+        </div>
+        <div class="perioder">7</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>87</span><br>
+                <span class="name">Fr</span>
+                <span class="full-name ">Francium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>88</span><br>
+                <span class="name">Ra</span>
+                <span class="full-name ">Radium</span>
+            </a>
+        </div>
+        <div class="andre">89-103</div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>104</span><br>
+                <span class="name">Rf</span>
+                <span class="full-name ">Rutherfordium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>105</span><br>
+                <span class="name">Db</span>
+                <span class="full-name ">Dubnium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>106</span><br>
+                <span class="name">Sg</span>
+                <span class="full-name ">Seaborgium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>107</span><br>
+                <span class="name">Bh</span>
+                <span class="full-name ">Bohrium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>108</span><br>
+                <span class="name">Hs</span>
+                <span class="full-name ">Hassium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>109</span><br>
+                <span class="name">Mt</span>
+                <span class="full-name ">Meitnerium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>110</span><br>
+                <span class="name">Ds</span>
+                <span class="full-name ">Darmstadtium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>111</span><br>
+                <span class="name">Rg</span>
+                <span class="full-name ">Røntgenium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>112</span><br>
+                <span class="name">Cn</span>
+                <span class="full-name ">Copernicium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>113</span><br>
+                <span class="name">Nh</span>
+                <span class="full-name ">Nithonium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>114</span><br>
+                <span class="name">Fl</span>
+                <span class="full-name ">Flerovium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>115</span><br>
+                <span class="name">Mc</span>
+                <span class="full-name ">Moscovium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>116</span><br>
+                <span class="name">Lv</span>
+                <span class="full-name ">Livermirium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>117</span><br>
+                <span class="name">Ts</span>
+                <span class="full-name ">Tenness</span>
+            </a>
+        </div>
+        <div class="ikke element">
+            <a onClick="info('no-info')">
+                <span>118</span><br>
+                <span class="name">Og</span>
+                <span class="full-name ">Oganesson</span>
+            </a>
+        </div>
+        <div class="span-19 tom"></div>
+        <div class="span-2x2 tom"></div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>57</span><br>
+                <span class="name">La</span>
+                <span class="full-name ">Lantan</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>58</span><br>
+                <span class="name">Ce</span>
+                <span class="full-name ">Cerium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>59</span><br>
+                <span class="name">Pr</span>
+                <span class="full-name ">Praseodym</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>60</span><br>
+                <span class="name">Nd</span>
+                <span class="full-name ">Neodym</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>61</span><br>
+                <span class="name">Pm</span>
+                <span class="full-name ">Promethium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>62</span><br>
+                <span class="name">Sm</span>
+                <span class="full-name ">Samarium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>63</span><br>
+                <span class="name">Eu</span>
+                <span class="full-name ">Europium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>64</span><br>
+                <span class="name">Gd</span>
+                <span class="full-name ">Gadolinium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>65</span><br>
+                <span class="name">Tb</span>
+                <span class="full-name ">Terbium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>66</span><br>
+                <span class="name">Dy</span>
+                <span class="full-name ">Dysprosium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>67</span><br>
+                <span class="name">Ho</span>
+                <span class="full-name ">Holmium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>68</span><br>
+                <span class="name">Er</span>
+                <span class="full-name ">Erbium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>69</span><br>
+                <span class="name">Tm</span>
+                <span class="full-name ">Thulium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>70</span><br>
+                <span class="name">Yb</span>
+                <span class="full-name ">Ytterbium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>71</span><br>
+                <span class="name">Lu</span>
+                <span class="full-name ">Lutetium</span>
+            </a>
+        </div>
+        <div class="span-2x2 tom"></div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>89</span><br>
+                <span class="name">Ac</span>
+                <span class="full-name ">Actinium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>90</span><br>
+                <span class="name">Th</span>
+                <span class="full-name ">Thorium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>91</span><br>
+                <span class="name">Pa</span>
+                <span class="full-name ">Protactinium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>92</span><br>
+                <span class="name">U</span>
+                <span class="full-name ">Uran</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>93</span><br>
+                <span class="name">Np</span>
+                <span class="full-name ">Neptunium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>94</span><br>
+                <span class="name">Pu</span>
+                <span class="full-name ">Plutonium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>95</span><br>
+                <span class="name">Am</span>
+                <span class="full-name ">Americium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>96</span><br>
+                <span class="name">Cm</span>
+                <span class="full-name ">Curium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>97</span><br>
+                <span class="name">Bk</span>
+                <span class="full-name ">Berkelium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>98</span><br>
+                <span class="name">Cf</span>
+                <span class="full-name ">Californium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>99</span><br>
+                <span class="name">Es</span>
+                <span class="full-name ">Einsteinium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>100</span><br>
+                <span class="name">Fm</span>
+                <span class="full-name ">Fermium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>101</span><br>
+                <span class="name">Md</span>
+                <span class="full-name ">Mendelevium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>102</span><br>
+                <span class="name">No</span>
+                <span class="full-name ">Nobelium</span>
+            </a>
+        </div>
+        <div class="metall element">
+            <a onClick="info('no-info')">
+                <span>103</span><br>
+                <span class="name">Lr</span>
+                <span class="full-name ">Lawrencium</span>
+            </a>
+        </div>
+
+    </section>
+
+
+    <div id="hydrogen-info" class="info">
+        <div class="info-block">
+            <div class="lukk">
+                <a onClick="lukk('hydrogen-info')">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <img src="https://energyeducation.ca/wiki/images/8/88/HYDROGEN.png" alt="">
+            <div class="text">
+                <h1>Hydrogen</h1>
+                <p>
+                    3 minutter etter det store smellet (Big Bang) besto universet i hovedsak av 75 % hydrogenkjerner og
+                    25 % heliumkjerner. I dag, rundt 15 milliarder år senere har det ikke skjedd så mye mer; universet
+                    består fremdeles i hovedsak av grunnstoffene hydrogen og helium. De fleste hydrogenatomer er altså
+                    omtrent 15 milliarder år gamle!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="kobber-info" class="info">
+        <div class="info-block">
+            <div class="lukk">
+                <a onClick="lukk('kobber-info')">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <img src="https://energyeducation.ca/wiki/images/7/76/COPPER.png" alt="">
+            <div class="text">
+                <h1>Kobber</h1>
+                <p>
+                    Kobber er det eneste metalliske grunnstoffet, ved siden av gull, som har farge. Metallet leder
+                    strøm og varme svært godt og er svært duktilt, dvs. at det er lett å forme det til tynne tråder
+                    eller plater. I tørr luft angripes det nesten ikke, men i fuktig luft vil det få et grønt belegg
+                    – irr.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="no-info" class="info">
+        <div class="info-block">
+            <div class="lukk">
+                <a onClick="lukk('no-info')">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png"
+                alt="">
+            <div class="text">
+                <h1>???????</h1>
+                <p>
+                    No info
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <form>
+        <input type="checkbox" id="ikke-metall" name="metall" value="ikke">
+        <label for="ikke-metall"> Ikke-metall</label><br>
+        <input type="checkbox" id="halv-metall" name="metall" value="halv">
+        <label for="halv-metall"> Halv-metaller</label><br>
+        <input type="checkbox" id="metaller" name="metaller" value="metall">
+        <label for="metaller"> Metaller</label>
+    </form>
+
+
+    <script>
+        function info(atom) {
+            document.getElementById(atom).style.display = "block";
+        }
+        function lukk(lukke) {
+            document.getElementById(lukke).style.display = "none";
+        }
+
+        
+
+        //document.getElementById("ikke-metall").addEventListener("click", ikkemetaller);
+        
+        
+            
+       // function ikkemetaller() {
+       /*function fremhev() { 
+        var valgt = "."+this.value;
+        alert(valgt);
+       const klasser = [];
+       var ikkevalgt="";
+        klasser[0] = ".ikke"; 
+        klasser[1] = ".halv";
+        klasser[2] = ".metall"; 
+
+        klasser.forEach(sjekk_valg);
+        function sjekk_valg(value){
+            if(value !=valgt)
+                ikkevalgt += value+",";
+
+        }
+        ikkevalgt = ikkevalgt.slice(0,ikkevalgt.length-1)
+
+        alert(ikkevalgt);*/
+            
+       //alert(this);
+        document.getElementById("ikke-metall").addEventListener("click", ikkemetaller);
+        function ikkemetaller() {
+            var elements = document.querySelectorAll('.metall,.halv'); // get all elements
+            var op = elements[0].style.opacity;
+            if (op!=0.3) {
+                for (var i = 0; i < elements.length; i++) {
+                elements[i].style.opacity = "0.3";
+                }
+            }
+            else {
+                for (var i = 0; i < elements.length; i++) {
+                elements[i].style.opacity = "1";
+                }
+            }
+        }
+
+        //}
+        
+        document.getElementById("halv-metall").addEventListener("click", halvmetaller);
+        function halvmetaller() {
+            var elements = document.querySelectorAll('.metall,.ikke'); // get all elements
+            var op = elements[0].style.opacity;
+            if (op!=0.3) {
+                for (var y = 0; y < elements.length; y++) {
+                    elements[y].style.opacity = "0.3";
+                }
+            }
+            else {
+                for (var y = 0; y < elements.length; y++) {
+                    elements[y].style.opacity = "1";
+                }
+            }
+        }
+        document.getElementById("metaller").addEventListener("click", yemetaller);
+        function yemetaller() {
+            var elements = document.querySelectorAll('.ikke,.halv'); // get all elements
+            var op = elements[0].style.opacity;
+            if (op!=0.3) {
+                for (var x = 0; x < elements.length; x++) {
+                    elements[x].style.opacity = "0.3";
+                }
+            }
+            else {
+                for (var x = 0; x < elements.length; x++) {
+                    elements[x].style.opacity = "1";
+                }
+            }
+        }
+        
+    </script>
+
+</body>
+
+</html>
