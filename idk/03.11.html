@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="tilsek()">Tilsekunder</button>
+    <button onclick="frasek()">Fra sekunder</button>
+    <button onclick="passord()">Passord</button>
+
+    <p id="para"></p>
+
+    <script>
+        function tilsek() {
+            let antallTimer = Number(prompt("Timer?"))
+            let antallMinutter = Number(prompt("Minutter?"))
+            let antallSekunder = Number(prompt("Sekunder?"))
+
+            let total = antallTimer * 3600 + antallMinutter * 60 + antallSekunder
+            document.getElementById("para").innerHTML = total + " sekunder"
+        }
+
+
+        function frasek() {
+            let sekunder = Number(prompt("Sekunder?"))
+            let minutter = sekunder / 60
+            let sek = sekunder % 60
+            let avrundetMin = parseInt(minutter)
+
+            let timer = avrundetMin / 60
+            let min = avrundetMin % 60
+
+            let time = parseInt(timer)
+
+            document.getElementById("para").innerHTML = time + "timer, " + min + "minutter og " + sek + "sekunder"
+        }
+
+
+        function passord() {
+            let hemmelig = "hemmelig" //prompt("Hemmelig ord")
+            let text;
+            do {
+                text = prompt("?????")
+
+                if (text == hemmelig) {
+                    alert("yey")
+                }
+                else if (text == "?lengde") {
+                    alert(hemmelig.length)
+                }
+                else if (text == "?1") {
+                    alert(hemmelig[0])
+                }
+                else if (text == "?2") {
+                    alert(hemmelig[1])
+                }
+                else if (text == "?siste") {
+                    alert(hemmelig.substring(2))
+                }
+                else if (text == "?store") {
+                    alert(hemmelig.toUpperCase())
+                }
+                else if (text == "?små") {
+                    alert(hemmelig.toLowerCase())
+                }
+                else {
+                    alert("no")
+                }
+            }
+            while (text != hemmelig)
+        }
+
+    </script>
+</body>
+
+</html>
