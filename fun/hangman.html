@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <style>
+        button {
+            margin: 3px;
+        }
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="random()">Own word</button>
+    <button onclick="english()">English</button>
+    <button onclick="norsk()">Norsk</button>
+
+    <h3 id="secret"></h3>
+
+    <button class="letters" id="a" onClick="guess('a')">a</button>
+    <button class="letters" id="b" onClick="guess('b')">b</button>
+    <button class="letters" id="c" onClick="guess('c')">c</button>
+    <button class="letters" id="d" onClick="guess('d')">d</button>
+    <button class="letters" id="e" onClick="guess('e')">e</button>
+    <button class="letters" id="f" onClick="guess('f')">f</button>
+    <button class="letters" id="g" onClick="guess('g')">g</button>
+    <button class="letters" id="h" onClick="guess('h')">h</button>
+    <button class="letters" id="i" onClick="guess('i')">i</button>
+    <button class="letters" id="j" onClick="guess('j')">j</button>
+    <button class="letters" id="k" onClick="guess('k')">k</button>
+    <button class="letters" id="l" onClick="guess('l')">l</button>
+    <button class="letters" id="m" onClick="guess('m')">m</button>
+    <button class="letters" id="n" onClick="guess('n')">n</button>
+    <button class="letters" id="o" onClick="guess('o')">o</button>
+    <br>
+    <button class="letters" id="p" onClick="guess('p')">p</button>
+    <button class="letters" id="q" onClick="guess('q')">q</button>
+    <button class="letters" id="r" onClick="guess('r')">r</button>
+    <button class="letters" id="s" onClick="guess('s')">s</button>
+    <button class="letters" id="t" onClick="guess('t')">t</button>
+    <button class="letters" id="u" onClick="guess('u')">u</button>
+    <button class="letters" id="v" onClick="guess('v')">v</button>
+    <button class="letters" id="w" onClick="guess('w')">w</button>
+    <button class="letters" id="x" onClick="guess('x')">x</button>
+    <button class="letters" id="y" onClick="guess('y')">y</button>
+    <button class="letters" id="z" onClick="guess('z')">z</button>
+    <button class="letters" id="æ" onClick="guess('æ')">æ</button>
+    <button class="letters" id="ø" onClick="guess('ø')">ø</button>
+    <button class="letters" id="å" onClick="guess('å')">å</button>
+
+
+    <h2 id="winText">Hangman</h2>
+
+    <h2 id="loseText"></h2>
+
+    <h3>Lives:</h3> <h3 id="lives">7</h3>
+
+    <canvas id="stick" width="300" height="250">Fuck</canvas>
+
+    
+
+    <script>
+        //Hangman
+        let secretWord;
+        let text;
+        let wordlength;
+        let lives = 7;
+
+        function english() {
+            let x = Math.floor(Math.random() * 21);
+            secretWord = wordEnglish[x]
+            hangman()
+        }
+        function norsk() {
+            let y = Math.floor(Math.random() * 9)
+            secretWord = wordNorsk[y]
+            hangman()
+        }
+        function random() {
+            secretWord = prompt("word?"); //Ask for secret word
+            secretWord = secretWord.toLowerCase()
+            hangman()
+        }
+        
+
+        function hangman(lang) {
+            var elements = document.getElementsByClassName("letters");
+            for (var x = 0; x < elements.length; x++) {
+                    elements[x].style.opacity = "1";    //make buttons visible
+                    elements[x].disabled = false;       //enable buttons
+            }
+
+            lives = 7;
+            nope();     //reset canvas
+            
+            
+            
+            wordlength = secretWord.length;
+            
+            text = "";
+
+            for (x = 0; x < wordlength; x++) {  //Make disguised text
+                text += "*"   
+            }
+
+            if (secretWord.includes(" ")) {     //check for spaces
+                let spacePos = secretWord.search(" ")
+                do {
+                    text = text.replaceAt(spacePos, " ")    //remove spaces
+                    secretWord = secretWord.replaceAt(spacePos, "_")
+                }
+                while (secretWord.includes(" "));
+            }
+
+            document.getElementById("secret").innerHTML= text //Place disguised text 
+        }
+
+        String.prototype.replaceAt = function(index, replacement) { //function that replaces disguised letters
+            return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+        }
+
+        function guess(letter) {
+            if (secretWord.includes(letter)) {  //check if letter is in the word
+                do {
+                    let position = secretWord.search(letter)    //find poition of letter
+                    text = text.replaceAt(position, letter)     //replace "*" with letter using previous function
+                    secretWord = secretWord.replaceAt(position, "*")    
+                }
+                while (secretWord.includes(letter));    //do for every appearance of letter in word
+                
+
+                document.getElementById("secret").innerHTML= text; // replace with updated text
+            }
+            else {
+                alert("Try again")
+                lives --;
+                wrong();    //draw part
+                
+                if (lives != 0) {
+                    document.getElementById("loseText").innerHTML = "";
+                }
+                else {
+                    document.getElementById("loseText").innerHTML = "You lose";
+                    var element = document.getElementsByClassName("letters");
+                    for (var i = 0; i < element.length; i++) {
+                        element[i].disabled =true;      //disable used buttons
+                    }
+                }
+                document.getElementById(letter).disabled = true;
+            }
+            
+            document.getElementById("lives").innerHTML = lives;
+            document.getElementById(letter).style.opacity = 0.1;  //make used buttons transparent
+
+            if (text.includes("*")) {   //check for win
+            document.getElementById("winText").innerHTML = "Hangman";
+            }
+            else {
+                document.getElementById("winText").innerHTML = "You win!!!"; //place win text
+            }
+        }
+        
+        //Drawing the man
+        var canvas = document.getElementById("stick");
+        var ctx = canvas.getContext("2d");
+        
+        wrong = function () { //draw next part when wrong letter
+            drawArray[lives]();
+        }
+
+        draw = function (movex, movey, linex, liney) {  //function to draw using 4 parameters
+            ctx.moveTo(movex, movey);       //line from (x, y)
+            ctx.lineTo(linex, liney);       //to (x, y)
+            ctx.stroke();
+        }
+
+        nope = function () { // reset canvas
+            ctx.reset();
+            document.getElementById("lives").innerHTML = "7" ;
+        }
+        
+        //every part of drawing
+        gallow = function () {
+            draw(185, 240, 20, 240);
+            draw(45, 240, 45, 40);
+            draw(45, 40, 140, 40);
+            draw(140, 40, 140, 55);
+        };
+        head = function () {
+            ctx.beginPath();
+            ctx.arc(140, 66, 12, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+        torso = function () {
+            draw(140, 78, 140, 130);
+        };
+        rightArm = function () {
+            draw(140, 95, 180, 100);
+        };
+
+        leftArm = function () {
+            draw(140, 95, 100, 100);
+        };
+
+        rightLeg = function () {
+            draw(140, 130, 180, 160);
+        };
+
+        leftLeg = function () {
+            draw(140, 130, 100, 160);
+        };
+
+        drawArray = [rightLeg, leftLeg, rightArm, leftArm, torso, head, gallow]
+
+        wordEnglish = ["play", "apology", "discover", "gas", "rock", "axis", "worry", "confine", "widen", "basketball", "ball", "incredible", "cemetery", "bus", "clarify", "inquiry", "heavy", "heaven", "hemisphere", "brainfuck"]
+
+        wordNorsk = ["hei", "basket", "film", "bowling", "videospill", "klasserom", "videregående", "kantine", "skole"]
+    </script>
+</body>
+</html>
