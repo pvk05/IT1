@@ -3,11 +3,12 @@ body {
 }
 #projects {
     width: 30%;
-    height: 500px;
+    height: fit-content;
     margin: 100px auto;
     border: 1px solid black;
     text-align: center;
     background-color: #efefef;
+    border-radius: 10px;
 }
 h1 {
 font-size: 40px;
