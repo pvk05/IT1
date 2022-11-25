@@ -1,0 +1,20 @@
+{
+    "scores": [
+        {
+            "name": "first",
+            "date": "04.20.69",
+            "score": "300"
+        },
+        {
+            "name": "second",
+            "date": "14.20.69",
+            "score": "200"
+        },
+        {
+            "name": "third",
+            "date": "24.20.69",
+            "score": "100"
+        }
+    ]
+    
+}
