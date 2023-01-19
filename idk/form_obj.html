@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form" onsubmit="return false">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name"><br><br>
+        <label for="class">Class: </label>
+        <input type="text" name="class" id="class"><br><br>
+        <label for="age">Age: </label>
+        <input type="number" name="age" id="age"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <table id="table">
+        <tr>
+            <th>Name</th>
+            <th>class</th>
+            <th>Age</th>
+        </tr>
+        
+    </table>
+
+    <script>
+        let form = document.getElementById("form")
+        let table = document.getElementById("table")
+
+        class Student {
+            constructor(name, schoolClass, age) {
+                this.name = name;
+                this.class = schoolClass;
+                this.age = age
+            }
+        }
+
+        let students = [];
+        let i;
+
+        if(localStorage.i) {
+            //localStorage.i = Number(localStorage.i) + 1;
+            i = localStorage.i
+        } else {
+            localStorage.i = 0;
+            i = localStorage.i
+        }
+
+        for (n=0;n<localStorage.length-1;n++) {
+            console.log(localStorage.getItem(`students${n}`))
+            
+            student = JSON.parse(localStorage.getItem(`students${n}`))
+            students[n] = student
+            table.innerHTML += `<tr>
+                                    <td>${student.name}</td>
+                                    <td>${student.class}</td>
+                                    <td>${student.age}</td>
+                                </tr>`
+        }
+
+        form.addEventListener("submit", function () {
+            let formName = form.name.value;
+            let formClass = form.class.value;
+            let formAge = form.age.value;
+            students[i] = new Student(formName, formClass, formAge)
+            table.innerHTML += `<tr>
+                                    <td>${formName}</td>
+                                    <td>${formClass}</td>
+                                    <td>${formAge}</td>
+                                </tr>`
+            console.log(students[i]);
+            studentString = JSON.stringify(students[i]);
+            localStorage.setItem(`students${i}`, studentString);
+            localStorage.i = Number(localStorage.i) + 1;
+            i = localStorage.i
+        });
+        
+        
+    </script>
+</body>
+</html> 
