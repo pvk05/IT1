@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russekort Maskin</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        #card {
+            position: absolute;
+            width: 800px;
+            height: 350px;
+            border: 2px solid black;
+            top: 25%;
+            left: 35%;
+        }
+
+        #imgBox {
+            width: 200px;
+            height: 200px;
+            border: 3px solid black;
+            position: absolute;
+            left: 500px;
+            top: 100px;
+            z-index: 1;
+            border-radius: 0px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        p {
+            position: absolute;
+            border: 1px dotted black;
+
+        }
+
+        datalist {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Russekort</h1>
+        <form id="form">
+            <input type="radio" id="placeName" name="placementRadios">
+            <label for="nameInp">Navn: </label>
+            <input type="text" name="nameInp" id="nameInp" value="Navn"><br>
+            <input type="radio" id="placeGender" name="placementRadios">
+            <label for="genderInp">Kjønn: </label>
+            <select name="genderInp" id="genderInp">
+                <option value="Kjønn" hidden disabled selected>------</option>
+                <option value="Mann">Mann</option>
+                <option value="Dame">Dame</option>
+                <option value="other">Annet</option>
+            </select><br>
+            <label for="otherGenderInp">Annet: </label>
+            <input type="text" name="otherGenderInp" id="otherGenderInp" value="Annet kjønn"><br>
+            <input type="radio" id="placeTel" name="placementRadios">
+            <label for="telInp">Telefon: </label>
+            <input type="tel" name="telInp" id="telInp" value="12345678"><br>
+            <input type="radio" id="placeBirth" name="placementRadios">
+            <label for="birthInp">Fødselsdag: </label>
+            <input type="date" name="birthInp" id="birthInp" value="2005-01-01"><br>
+            <input type="radio" id="placeImg" name="placementRadios">
+            <label for="imgInp">Bilde :</label>
+            <input type="file" name="imgInp" id="imgInp"><br>
+            <label for="borderWidthInp">Border Width: </label>
+            <input type="number" id="borderWidthInp" name="borderWidthInp"><br>
+            <label for="borderColorInp">Border Color: </label>
+            <input type="color" name="borderColorInp" id="borderColorInp"><br>
+            <label for="borderRadiusInp">Border Radius: </label>
+            <input type="number" name="borderRadiusInp" id="borderRadiusInp" value="3"><br>
+            <label for="bgColorInp">Bakgrunnsfarge: </label>
+            <input type="color" name="bgColorInp" id="bgColorInp"><br>
+            <label for="nameFontSize">Navn størrelse: </label>
+            <input type="range" name="nameFontSize" id="nameFontSize" min="10" max="70" list="fontSizes">
+            <datalist id="fontSizes">
+                <option value="10"></option>
+                <option value="20"></option>
+                <option value="30"></option>
+                <option value="40"></option>
+                <option value="50"></option>
+                <option value="60"></option>
+                <option value="70"></option>
+            </datalist>
+            <br>
+            <br>
+            <input type="button" value="Done" onclick="done()" id="doneBtn">
+
+
+        </form>
+    </div>
+    <br>
+
+    <div id="card">
+        <p id="cardName">Navn</p>
+        <p id="cardGender">Kjønn</p>
+        <p id="cardTel">Telefon</p>
+        <p id="cardBirth">Bursdag</p>
+        
+    </div>
+    <div id="imgBox">
+        <img src="bean.png" alt="Bilde" id="cardImg">
+    </div>
+
+    <script>
+        let formEl = document.getElementById("form")
+        let inpEls = {
+            name: document.getElementById("nameInp"),
+            gender: document.getElementById("genderInp"),
+            otherGender: document.getElementById("otherGenderInp"),
+            tel: document.getElementById("telInp"),
+            birth: document.getElementById("birthInp"),
+            img: document.getElementById("imgInp"),
+            bgColor: document.getElementById("bgColorInp"),
+            doneBtn: document.getElementById("doneBtn"),
+            borderWidth: document.getElementById("borderWidthInp"),
+            borderColor: document.getElementById("borderColorInp"),
+            borderRadius: document.getElementById("borderRadiusInp"),
+            nameSize: document.getElementById("nameFontSize"),
+        }
+        let cardEl = document.getElementById("card")
+        let cardEls = {
+            name: document.getElementById("cardName"),
+            gender: document.getElementById("cardGender"),
+            tel: document.getElementById("cardTel"),
+            birth: document.getElementById("cardBirth"),
+            img: document.getElementById("cardImg"),
+            imgBox: document.getElementById("imgBox")
+        }
+        let radios = [
+            document.getElementById("placeName"),
+            document.getElementById("placeGender"),
+            document.getElementById("placeTel"),
+            document.getElementById("placeBirth"),
+            document.getElementById("placeImg"),
+        ]
+
+        inpEls.bgColor.value = "#ffffff"
+        cardEl.style.backgroundColor = inpEls.bgColor.value
+        inpEls.otherGender.disabled = true
+
+        formEl.onchange = function () {
+            cardEls.name.innerHTML = inpEls.name.value
+            if (inpEls.gender.value != "other") {
+                cardEls.gender.innerHTML = inpEls.gender.value
+                inpEls.otherGender.disabled = true
+            } else {
+                inpEls.otherGender.disabled = false
+                cardEls.gender.innerHTML = inpEls.otherGender.value
+            }
+            cardEls.tel.innerHTML = inpEls.tel.value
+            cardEls.birth.innerHTML = inpEls.birth.value
+            cardEl.style.backgroundColor = inpEls.bgColor.value
+            cardEls.imgBox.style.border = inpEls.borderWidth.value + "px solid " + inpEls.borderColor.value
+            cardEls.imgBox.style.borderRadius = inpEls.borderRadius.value + "px"
+        }
+        inpEls.img.onchange = function () {
+            cardEls.img.src = URL.createObjectURL(inpEls.img.files[0])
+        }
+
+        cardEl.onclick = function (evt) {
+            console.log("click")
+            for (i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    if (i == 4) {
+                        let element = cardEls.imgBox
+                        element.style.top = evt.clientY-100 + "px"
+                        element.style.left = evt.clientX-100 + "px"
+                        break
+                    }
+                    let element = cardEls[(radios[i].id.substr(5, radios[i].length)).toLowerCase()]
+                    element.style.top = evt.clientY-(screen.height*0.25) + "px"
+                    element.style.left = evt.clientX-(screen.width*0.35) + "px"
+                }
+            }
+        }
+        
+        inpEls.nameSize.onchange = function () {
+            cardEls.name.style.fontSize = inpEls.nameSize.value + "px"
+        }
+        function done() {
+            console.log("done")
+            let dateToday = new Date()
+            console.log(dateToday)
+            let str18Ago = (dateToday.getFullYear() - 18) + "-" + (dateToday.getMonth() + 1) + "-" + dateToday.getDate()
+            console.log(str18Ago)
+            let date18Ago = new Date(str18Ago)
+            console.log(date18Ago)
+            let inputDate = new Date(inpEls.birth.value)
+            if (inputDate < date18Ago) { console.log("yay") }
+        }
+    </script>
+</body>
+
+</html>
