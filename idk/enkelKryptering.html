@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Kryptering</title>
+</head>
+<body>
+    <label for="krypterInput">Krypter</label>
+    <input type="text" name="krypterInput" id="krypterInput">
+    <label for="krypterForskyvning">Forskyvning</label>
+    <input type="number" name="krypterForskyvning" id="krypterForskyvning">
+    <button onclick="krypter()">Krypter</button>
+    <p id="kryptertOutput"></p>
+    <label for="dekrypterInput">Dekrypter</label>
+    <input type="text" name="dekrypterInput" id="dekrypterInput">
+    <label for="dekrypterForskyvning">Forskyvning</label>
+    <input type="number" name="dekrypterForskyvning" id="dekrypterForskyvning">
+    <button onclick="dekrypter()">Dekrypter</button>
+    <p id="dekryptertOutput"></p>
+
+    <script>
+        let krypterInp = document.getElementById("krypterInput")
+        let krypterForskyvning = document.getElementById("krypterForskyvning")
+        let kryptertOutput = document.getElementById("kryptertOutput")
+
+        let dekrypterInp = document.getElementById("dekrypterInput")
+        let dekrypterForskyvning = document.getElementById("dekrypterForskyvning")
+        let dekryptertOutput = document.getElementById("dekryptertOutput")
+
+        function krypter() {
+            let inputTxt = krypterInp.value;
+            let forskyvning = krypterForskyvning.value;
+            let asciiCodes = "";
+            for (i=0;i<inputTxt.length;i++) {
+                asciiCodes += Number(inputTxt.charCodeAt(i)) + Number(forskyvning)
+                asciiCodes += "|"
+            }
+            kryptertOutput.innerHTML = asciiCodes
+        }
+
+        function dekrypter() {
+            let asciiCodes = dekrypterInp.value;
+            let codeArr = asciiCodes.split("|")
+            codeArr.pop()
+            let forskyvning = dekrypterForskyvning.value;
+            let outputTxt = "";
+
+            for (i=0;i<codeArr.length;i++) {
+                codeArr[i] = codeArr[i]-forskyvning
+                outputTxt += String.fromCharCode(codeArr[i])
+            }
+            dekryptertOutput.innerHTML = outputTxt
+        }
+    </script>
+</body>
+</html>
