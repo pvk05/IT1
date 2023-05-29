@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blipp</title>
+    <style>
+        div {
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button onclick="start()">Start</button>
+    <input type="color" name="colorInp" id="colorInp">
+    <h1 id="score">0</h1>
+    <h2 id="time">Time: </h2>
+    <h2 id="wave">Wave: 1</h2>
+
+    <script>
+        let chosenColor = document.getElementById("colorInp")
+        let blipps;
+        let ny;
+        let scoreEl = document.getElementById("score")
+        let score = 0;
+        let running = false
+        let counterEl = document.getElementById("time")
+        let wave = 1;
+        let seconds = 5
+        let spawnOnClick = false
+        let waveEl = document.getElementById("wave")
+        counterEl.innerHTML = "Time: " + seconds + "s"
+        waveEl.innerHTML = "Wave: " + wave
+
+
+        window.onclick = function (evt) {
+            if (spawnOnClick) {
+                let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16)
+                let randomBorderRad = Math.floor(Math.random() * 51) + "%"
+                let sirkelEl = document.createElement("div");
+                sirkelEl.style.top = evt.clientY - 25 + "px";
+                sirkelEl.style.left = evt.clientX - 25 + "px";
+                //sirkelEl.style.backgroundColor = chosenColor.value;
+                sirkelEl.style.backgroundColor = randomColor
+                sirkelEl.style.borderRadius = randomBorderRad;
+                sirkelEl.className = "blipp"
+                sirkelEl.onclick = fjernFunc;
+                sirkelEl.onmouseenter = fjernFunc;
+                document.body.appendChild(sirkelEl);
+                ny = true
+            }
+        }
+
+        chosenColor.onclick = function (evt) {
+            evt.stopPropagation();
+        }
+
+        function fjernFunc(evt) {
+            evt.stopPropagation();
+            if (!ny) {
+                let scaleAnim = evt.target.animate([{ transform: "scale(1)" }, { transform: "scale(2)" }], 50);
+                scaleAnim.onfinish = function () {
+                    document.body.removeChild(evt.target);
+                }
+            }
+            ny = false
+            score++
+            scoreEl.innerHTML = score
+
+        }
+        let timeBetween = 700
+        function spawnBlipp() {
+
+            let coords = [Math.random() * (screen.width - 50), Math.random() * (screen.height - 200)];
+            let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16)
+
+            while (coords[0]<150 && coords[1]<200) {
+                coords = [Math.random() * (screen.width - 50), Math.random() * (screen.height - 200)];
+            }
+
+            let sirkelEl = document.createElement("div");
+            sirkelEl.style.top = coords[1] + "px";
+            sirkelEl.style.left = coords[0] + "px";
+            sirkelEl.style.backgroundColor = randomColor
+            sirkelEl.style.borderRadius = "50%";
+            sirkelEl.className = "blipp"
+            sirkelEl.onclick = fjernFunc;
+            sirkelEl.onmouseenter = fjernFunc;
+            document.body.appendChild(sirkelEl);
+        }
+
+        function start() {
+            running = true
+            seconds = 5
+            always()
+            counter()
+            console.log("start")
+            
+        }
+
+        function always() {
+            if (running == true) {
+                setTimeout(() => { always(); }, timeBetween)
+                spawnBlipp()
+                
+            }
+            
+        }
+
+        function counter() {
+            if (seconds > 0) {
+                seconds--
+                counterEl.innerHTML = "Time: " + seconds + "s"
+                setTimeout(() => { counter(); }, 1000)
+            } else {
+                running = false
+                blipps = document.getElementsByClassName("blipp")
+                for(i=0;i<blipps.length;i++) {
+                    document.body.removeChild(blipps[i])
+                }
+                wave++
+                waveEl.innerHTML = "Wave: " + wave
+                setTimeout(() => { start(); }, 5000)
+                timeBetween-=100
+            }
+
+        }
+    </script>
+</body>
+
+</html>
