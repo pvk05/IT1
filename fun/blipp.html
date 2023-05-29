@@ -19,6 +19,10 @@
 
 <body>
     <button onclick="start()">Start</button>
+    <br>
+    <label for="clickSpawnCheck">Spawn on click?</label>
+    <input type="checkbox" name="clickSpawnCheck" id="clickSpawnCheck">
+    <br>
     <input type="color" name="colorInp" id="colorInp">
     <h1 id="score">0</h1>
     <h2 id="time">Time: </h2>
@@ -39,20 +43,34 @@
         counterEl.innerHTML = "Time: " + seconds + "s"
         waveEl.innerHTML = "Wave: " + wave
 
+        let clickSpawnCheck = document.getElementById("clickSpawnCheck")
+        clickSpawnCheck.onclick = function () {
+            if(clickSpawnCheck.checked) {
+                
+                spawnOnClick = true 
+            }
+            else {
+                spawnOnClick = false
+            }
+        }
 
+        //En funksjon som plasserer en sirkel på pekerer sin posisjon når man trykker på siden
         window.onclick = function (evt) {
             if (spawnOnClick) {
-                let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16)
+                //tar et tilfeldig tall og gjør det om til hex kode for å få en tilfeldig farge
+                let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16) 
+                //finner et tilfeldig tall for å få forskjellig border radius
                 let randomBorderRad = Math.floor(Math.random() * 51) + "%"
+                //skaper et element og gir det forskjellige egenskaper som klasse, farge og posisjon
                 let sirkelEl = document.createElement("div");
                 sirkelEl.style.top = evt.clientY - 25 + "px";
                 sirkelEl.style.left = evt.clientX - 25 + "px";
-                //sirkelEl.style.backgroundColor = chosenColor.value;
                 sirkelEl.style.backgroundColor = randomColor
                 sirkelEl.style.borderRadius = randomBorderRad;
                 sirkelEl.className = "blipp"
                 sirkelEl.onclick = fjernFunc;
                 sirkelEl.onmouseenter = fjernFunc;
+                //plasserer blippen på siden
                 document.body.appendChild(sirkelEl);
                 ny = true
             }
@@ -77,14 +95,17 @@
         }
         let timeBetween = 700
         function spawnBlipp() {
-
+            //definerer koordinatene til blippen som 2 tilfeldige tall
             let coords = [Math.random() * (screen.width - 50), Math.random() * (screen.height - 200)];
+            //finner tilfeldig farge
             let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16)
 
+            //hvis koordinatene er over knappene finner den nye koordinater
             while (coords[0]<150 && coords[1]<200) {
                 coords = [Math.random() * (screen.width - 50), Math.random() * (screen.height - 200)];
             }
 
+            //skaper en blipp og plasserer den på samme måte som tidligere
             let sirkelEl = document.createElement("div");
             sirkelEl.style.top = coords[1] + "px";
             sirkelEl.style.left = coords[0] + "px";
@@ -96,24 +117,26 @@
             document.body.appendChild(sirkelEl);
         }
 
+        //funksjon for å starte spillet
         function start() {
             running = true
             seconds = 5
             always()
             counter()
-            console.log("start")
+            console.log("Start")
             
         }
 
+        //funksjon som kjører om igjen og om igjen for å alltid skape flere blipper
         function always() {
             if (running == true) {
                 setTimeout(() => { always(); }, timeBetween)
                 spawnBlipp()
-                
             }
             
         }
 
+        //funksjon for å telle ned tiden og starte nye runder automatisk
         function counter() {
             if (seconds > 0) {
                 seconds--
