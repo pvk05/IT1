@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kryptering</title>
+</head>
+<body>
+    <input type="text" name="input" id="krypterInput">
+    <input type="button" value="Submit" onclick="krypter()">
+    <br><br>
+    <p id="kryptertOutput"></p>
+    <br><br>
+    <input type="text" name="input" id="dekrypterInput">
+    <input type="button" value="Submit" onclick="dekrypter()">
+    <p id="dekryptertOutput"></p>
+    
+    <script>
+        let krypterInputEl = document.getElementById("krypterInput");
+        let dekrypterInputEl = document.getElementById("dekrypterInput")
+        let format = "length:randomNums:asciiLengths:asciiCodes"
+        let kryptertOutput = document.getElementById("kryptertOutput")
+        let dekryptertOutput = document.getElementById("dekryptertOutput")
+
+        function krypter() {
+            let string = krypterInputEl.value;
+            let rand = [];
+            let ascii = [[],[]];
+            let kryptert = string.length + ":";
+            let randomNums = "";
+            for (i=0;i<string.length;i++) {
+                rand[i] = Math.floor(Math.random()*9)
+                ascii[0][i] = string.charCodeAt(i);
+                ascii[1][i] = ascii[0][i] + rand[i]
+                
+                randomNums += rand[i]
+            }
+            let exp = Math.floor(Math.random()*5)+1
+            kryptert+=exp
+            randomNums = Number(randomNums)
+            randomNums = randomNums*exp
+            kryptert+=randomNums
+            kryptert+=":"
+
+            for(i=0;i<string.length;i++) {
+                
+                
+                if(i==0) {
+                    kryptert += ascii[1][i].toString().length
+                } else {
+                    kryptert += "." + (ascii[1][i]).toString().length
+                }
+            }
+            
+            kryptert+=":";
+            let temp = "";
+            for (i=0;i<string.length;i++) {
+                temp += ascii[1][i]
+            }
+
+            exp = Math.floor(Math.random()*5)+1
+            kryptert+=exp
+            temp = temp*exp
+            console.log(temp + " " + exp)
+            kryptert += temp
+
+
+            kryptertOutput.innerHTML = kryptert
+
+        }
+        function dekrypter() {
+
+        }
+
+    </script>
+</body>
+</html>
