@@ -8,8 +8,9 @@ Water.css dark:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
 ```
 
+Fontawesome: 
 ```html
-Fontawesome: <script src="https://kit.fontawesome.com/f5fd432ab3.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f5fd432ab3.js" crossorigin="anonymous"></script>
 ```
 
 ## Import JSON file
